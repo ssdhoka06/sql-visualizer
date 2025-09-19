@@ -10,10 +10,8 @@ public class Main {
         String user = "root";                              
         String password = "1@mSHAKTI";                      
         try {
-            // Load the driver class
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Connect
+          
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println("Connection successful!");
 
