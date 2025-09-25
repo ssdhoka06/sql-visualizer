@@ -429,7 +429,16 @@ public class MainWindow extends JFrame {
     public static void main(String[] args) {
         // Set look and feel to system default
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeel());
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                
+            }
         } catch (Exception e) {
             // If system L&F fails, use default
             System.err.println("Could not set system look and feel: " + e.getMessage());

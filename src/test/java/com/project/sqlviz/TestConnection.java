@@ -1,10 +1,6 @@
 package test.java.com.project.sqlviz;
 
-import com.project.sqlviz.db.ConnectionFactory;
-import com.project.sqlviz.models.Connection;
 import com.project.sqlviz.models.ConnectionConfig;
-import com.project.sqlviz.models.QueryResult;
-import com.project.sqlviz.services.QueryExecutor;
 import com.project.sqlviz.services.SqlInterpreter;
 
 /**
