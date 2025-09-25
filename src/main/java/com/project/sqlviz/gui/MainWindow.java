@@ -157,7 +157,7 @@ public class MainWindow extends JFrame {
         buttonPanel.add(executeButton);
 
         JButton clearButton = new JButton("Clear");
-        clearButton.addActionListener(e -> sqlEditor.setText(""));
+        clearButton.addActionListener(_ -> sqlEditor.setText(""));
         buttonPanel.add(clearButton);
 
         panel.add(buttonPanel, BorderLayout.SOUTH);

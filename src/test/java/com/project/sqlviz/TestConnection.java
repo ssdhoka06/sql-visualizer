@@ -1,4 +1,4 @@
-package com.project.sqlviz;
+package test.java.com.project.sqlviz;
 
 import com.project.sqlviz.db.ConnectionFactory;
 import com.project.sqlviz.models.Connection;
