@@ -1,25 +1,34 @@
 package com.project.sqlviz;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import com.project.sqlviz.gui.MainWindow;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
+/**
+ * Main class to launch the SQL Visualizer application
+ * This class serves as the entry point for the application
+ */
 public class Main {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/VIT";  
-        String user = "root";                              
-        String password = "1@mSHAKTI";                      
+        System.out.println("Starting SQL Visualizer...");
+        
+        // Set system look and feel for better native appearance
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-          
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection successful!");
-
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            System.out.println("Driver not found: " + e.getMessage());
-        } catch (SQLException e) {
-            System.out.println("SQL Error: " + e.getMessage());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeel());
+        } catch (Exception e) {
+            System.err.println("Warning: Could not set system look and feel");
         }
+
+        // Launch GUI on Event Dispatch Thread (EDT)
+        // This is the proper way to start Swing applications
+        SwingUtilities.invokeLater(() -> {
+            try {
+                new MainWindow();
+                System.out.println("SQL Visualizer GUI launched successfully");
+            } catch (Exception e) {
+                System.err.println("Error launching GUI: " + e.getMessage());
+                e.printStackTrace();
+            }
+        });
     }
 }
